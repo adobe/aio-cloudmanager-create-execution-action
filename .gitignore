@@ -1,0 +1,4 @@
+junit.xml
+coverage/
+node_modules/
+dist/typescript
