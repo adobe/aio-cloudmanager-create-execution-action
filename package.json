@@ -7,6 +7,8 @@
     "posttest": "npm run lint",
     "lint": "eslint src/**.js",
     "package": "ncc build src/index.js -o dist/",
+    "generate-docs": "rexreplace '(adobe/aio-cloudmanager-create-execution-action@v).*' '$1 + r(\"package\").version' -j README.md",
+    "postversion": "npm run generate-docs && git add README.md",
     "test": "npm run unit-tests",
     "unit-tests": "jest --ci",
     "prepare": "husky install",
@@ -44,6 +46,7 @@
     "husky": "^7.0.0",
     "jest": "27.3.1",
     "jest-junit": "13.0.0",
+    "rexreplace": "7.0.7",
     "semantic-release": "17.4.7"
   },
   "engines": {
