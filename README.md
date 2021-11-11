@@ -12,7 +12,7 @@ governing permissions and limitations under the License.
 
 [![Build Status](https://github.com/adobe/aio-lib-cloudmanager/workflows/CI%20Build/badge.svg?branch=main)](https://github.com/adobe/aio-cloudmanager-start-execution-action/actions?query=workflow%3A%22CI+Build%22)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![Codecov Coverage](https://img.shields.io/codecov/c/github/adobe/aio-cloudmanager-start-execution-action/master.svg?style=flat-square)](https://codecov.io/gh/adobe/aio-lib-cloudmanager/)
+[![Codecov Coverage](https://img.shields.io/codecov/c/github/adobe/aio-cloudmanager-start-execution-action/master.svg?style=flat-square)](https://codecov.io/gh/adobe/aio-cloudmanager-start-execution-action/)
 
 # aio-cloudmanager-create-execution-action
 
