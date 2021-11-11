@@ -86,6 +86,7 @@
             "README.md",
             "CHANGELOG.md",
             "package.json",
+            "package-lock.json",
             "dist/index.js"
           ],
           "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
