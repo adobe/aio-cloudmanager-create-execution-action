@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.4](https://github.com/adobe/aio-cloudmanager-create-execution-action/compare/v1.0.3...v1.0.4) (2021-11-11)
+
+
+### Bug Fixes
+
+* **docs:** add version to examples in readme. fixes [#8](https://github.com/adobe/aio-cloudmanager-create-execution-action/issues/8) ([#9](https://github.com/adobe/aio-cloudmanager-create-execution-action/issues/9)) ([525abdb](https://github.com/adobe/aio-cloudmanager-create-execution-action/commit/525abdb289be425a3b48cb4a7b48ca19253657ab))
+
 ## [1.0.3](https://github.com/adobe/aio-cloudmanager-create-execution-action/compare/v1.0.2...v1.0.3) (2021-11-11)
 
 
