@@ -2,5 +2,13 @@
   "extends": [
     "config:base",
     ":semanticCommits"
+  ],
+  "packageRules": [
+    {
+      "packageNames": [
+        "node"
+      ],
+      "enabled": false
+    }
   ]
 }
