@@ -1,0 +1,26 @@
+{
+  "extends": [
+    "config:base",
+    ":semanticCommits"
+  ],
+  "packageRules": [
+    {
+      "packageNames": [
+        "node"
+      ],
+      "enabled": false
+    },
+    {
+      "packageNames": ["semantic-release"],
+      "allowedVersions": "<18.0"
+    },
+    {
+      "packageNames": ["@semantic-release/changelog"],
+      "allowedVersions": "<6.0"
+    },
+    {
+      "packageNames": ["@semantic-release/git"],
+      "allowedVersions": "<10.0"
+    }
+  ]
+}
