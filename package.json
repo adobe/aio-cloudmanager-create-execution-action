@@ -8,7 +8,7 @@
     "lint": "eslint src/**.js",
     "package": "ncc build src/index.js -o dist/",
     "generate-docs": "rexreplace '(adobe/aio-cloudmanager-create-execution-action@v).*' '$1 + r(\"package\").version' -j -q README.md",
-    "postversion": "npm run generate-docs && git add README.md",
+    "version": "npm run generate-docs && git add README.md",
     "test": "npm run unit-tests",
     "unit-tests": "jest --ci",
     "prepare": "husky install",
