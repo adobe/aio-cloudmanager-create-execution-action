@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.5](https://github.com/adobe/aio-cloudmanager-create-execution-action/compare/v1.0.4...v1.0.5) (2021-11-12)
+
+
+### Bug Fixes
+
+* **deps:** pin dependencies ([#5](https://github.com/adobe/aio-cloudmanager-create-execution-action/issues/5)) ([623ad73](https://github.com/adobe/aio-cloudmanager-create-execution-action/commit/623ad738052ea9f43eb0da7f12b08dcae59bb34b))
+
 ## [1.0.4](https://github.com/adobe/aio-cloudmanager-create-execution-action/compare/v1.0.3...v1.0.4) (2021-11-11)
 
 
