@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "posttest": "npm run lint",
-    "lint": "eslint src/**.js",
+    "lint": "eslint src/**.js tools/**.js",
     "package": "ncc build src/index.js -o dist/",
     "generate-docs": "node ./tools/update-readme.js",
     "postversion": "npm run generate-docs",
