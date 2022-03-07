@@ -23,7 +23,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@actions/core": "1.6.0",
-    "@adobe/aio-lib-cloudmanager": "1.12.1",
+    "@adobe/aio-lib-cloudmanager": "1.14.1",
     "@adobe/aio-lib-ims": "5.0.1",
     "halfred": "2.0.0",
     "jsonwebtoken": "8.5.1"
