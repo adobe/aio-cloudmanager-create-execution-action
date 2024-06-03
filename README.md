@@ -28,6 +28,10 @@ This action can be configured two different ways -- either in combination with [
 
 ### Standalone usage
 
+#### Using JWT integration
+
+***NOTE:*** The JWT mode of authentication is deprecated and will be completely removed by Jan,2025. So if you are using JWT integration, it is recommended to migrate to OAuth. Check [migration guide](https://developer.adobe.com/developer-console/docs/guides/authentication/ServerToServerAuthentication/migration/) for more details.
+
 * `CLIENTID` - Client ID for the project in the I/O Developer Console
 * `CLIENTSECRET` - Client Secret for the project in the I/O Developer Console
 * `TECHNICALACCOUNTID` - Technical Account Email for the project in the I/O Developer Console
@@ -49,6 +53,31 @@ This action can be configured two different ways -- either in combination with [
     PROGRAMID: ${{ secrets.CM_PROGRAM_ID }}
 ```
 
+#### Using OAUTH integration
+
+* `CLIENTID` - Client ID for the project in the I/O Developer Console
+* `CLIENTSECRET` - Client Secret for the project in the I/O Developer Console
+* `TECHNICALACCOUNTID` - Technical Account ID for the project in the I/O Developer Console
+* `TECHNICALACCOUNTEMAIL` - Technical Account Email for the project in the I/O Developer Console (previously called `TECHNICALACCOUNTID` for JWT configuration)
+* `IMSORGID` - IMS Organization ID for the project in the I/O Developer Console
+* `PROGRAMID` - Cloud Manager Program ID
+* `PIPELINEID` - Cloud Manager Pipeline ID
+* `OAUTHENABLED` - set to `'true'`(string) to identify OAuth integration
+
+```
+- name: Create Execution
+  uses: adobe/aio-cloudmanager-create-execution-action@v1.0.5
+  with:
+    CLIENTID: ${{ secrets.CM_CLIENT_ID }}
+    CLIENTSECRET: ${{ secrets.CM_CLIENT_SECRET }}
+    TECHNICALACCOUNTID: ${{ secrets.CM_TA_ID }}
+    TECHNICALACCOUNTEMAIL: ${{ secrets.CM_TA_EMAIL }}
+    IMSORGID: ${{ secrets.CM_ORG_ID }}
+    PIPELINEID: ${{ secrets.CM_PIPELINE_ID }}
+    PROGRAMID: ${{ secrets.CM_PROGRAM_ID }}
+    OAUTHENABLED: 'true'
+```
+
 ### Usage with aio-apps-action
 
 1. Add a step which uses `adobe/aio-apps-action` providing these required inputs:
@@ -56,10 +85,12 @@ This action can be configured two different ways -- either in combination with [
 * `command` - set to `auth`
 * `CLIENTID` - Client ID for the project in the I/O Developer Console
 * `CLIENTSECRET` - Client Secret for the project in the I/O Developer Console
-* `TECHNICALACCOUNTID` - Technical Account Email for the project in the I/O Developer Console
+* `TECHNICALACCOUNTID` - Technical Account ID for the project in the I/O Developer Console
+* `TECHNICALACCOUNTEMAIL` - Technical Account Email for the project in the I/O Developer Console (Only for OAuth integration; previously called `TECHNICALACCOUNTID` for JWT configuration)
 * `IMSORGID` - IMS Organization ID for the project in the I/O Developer Console
-* `SCOPES` - set to `ent_cloudmgr_sdk` **at minimum**
-* `KEY` - Private key for the project in the I/O Developer Console
+* `SCOPES` - set to `ent_cloudmgr_sdk` **at minimum** for JWT and `openid, AdobeID, read_organizations, additional_info.projectedProductContext, read_pc.dma_aem_ams` for OAuth
+* `KEY` - Private key for the project in the I/O Developer Console (Only for JWT integration)
+* `OAUTHENABLED` - set to true for OAuth-type integrations (required for OAuth integration; optional for JWT integration)
 
 For example:
 

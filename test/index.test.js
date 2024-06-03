@@ -109,7 +109,7 @@ test('test using cli auth - missing client_id', async () => {
   expect(core.setFailed).toHaveBeenCalledWith(new Error('The decoded token from the CLI authentication context did not have a client_id'))
 })
 
-test('test using provided config auth', async () => {
+test('test using provided config auth - JWT', async () => {
   const input = {
     imsOrgId: 'abc@AdobeOrg',
     programId: '1',
@@ -133,6 +133,40 @@ test('test using provided config auth', async () => {
     private_key: 'test-key',
     meta_scopes: [
       'ent_cloudmgr_sdk',
+    ],
+  }, true)
+  expect(getToken).toHaveBeenCalledWith('aio-cloudmanager-github-actions')
+})
+
+test('test using provided config auth - OAuth', async () => {
+  const input = {
+    imsOrgId: 'abc@AdobeOrg',
+    programId: '1',
+    pipelineId: '2',
+    clientId: 'test-clientid',
+    clientSecret: 'test-clientSecret',
+    technicalAccountId: 'test-technicalAccountId',
+    technicalAccountEmail: 'test-technicalAccountEmail',
+    oauthEnabled: 'true',
+  }
+
+  core.getInput = jest.fn(name => input[name])
+  context.get = jest.fn(name => name === 'aio-cloudmanager-github-actions' ? 'fake-token' : undefined)
+
+  await executeAction()
+  expect(context.get).toHaveBeenCalledWith('cli')
+  expect(context.set).toHaveBeenCalledWith('aio-cloudmanager-github-actions', {
+    client_id: 'test-clientid',
+    client_secrets: ['test-clientSecret'],
+    technical_account_id: 'test-technicalAccountId',
+    technical_account_email: 'test-technicalAccountEmail',
+    ims_org_id: 'abc@AdobeOrg',
+    scopes: [
+      'openid',
+      'AdobeID',
+      'read_organizations',
+      'additional_info.projectedProductContext',
+      'read_pc.dma_aem_ams',
     ],
   }, true)
   expect(getToken).toHaveBeenCalledWith('aio-cloudmanager-github-actions')
