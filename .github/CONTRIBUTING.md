@@ -108,3 +108,7 @@ The `chore` type may be used for trivial changes in developer documentation (lik
 The `feat` and `fix` types must also contain a reference to a GitHub issue ID, e.g. `fixes #123`
 
 [husky](https://typicode.github.io/husky/) is used to verify commit messages before committing. But please do not rely upon husky to do the right thing.
+
+## Testing Locally
+
+Move `tools/test.yml` to `.github/workflows/test.yml`. Uncomment the contents and insert your branch name in the placeholder. The action and subsequent changes will run when any commit in the local branch is pushed to remote forked repository.
