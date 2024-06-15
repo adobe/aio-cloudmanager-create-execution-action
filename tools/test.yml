@@ -1,0 +1,23 @@
+# name: Test Action Locally
+# on:
+#   push:
+#     branches:
+#       - <your_branch_name>
+# jobs:
+#   test:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v4
+#         with:
+#           fetch-depth: 0
+#       - name: Run Local Action
+#         uses: ./
+#         with:
+#           CLIENTID: ${{ secrets.CM_CLIENT_ID }}
+#           CLIENTSECRET: ${{ secrets.CM_CLIENT_SECRET }}
+#           TECHNICALACCOUNTID: ${{ secrets.CM_TA_EMAIL }}
+#           IMSORGID: ${{ secrets.CM_ORG_ID }}
+#           KEY: ${{ secrets.CM_PRIVATE_KEY }}
+#           PIPELINEID: ${{ secrets.CM_PIPELINE_ID }}
+#           PROGRAMID: ${{ secrets.CM_PROGRAM_ID }}
