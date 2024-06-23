@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.2.0](https://github.com/adobe/aio-cloudmanager-create-execution-action/compare/v1.1.0...v1.2.0) (2024-06-23)
+
+
+### Features
+
+* **build:** OAuth integration support for the action ([dddbede](https://github.com/adobe/aio-cloudmanager-create-execution-action/commit/dddbede3147fff2d8d8f6d55aaafd6061e9da2fb))
+
 # [1.1.0](https://github.com/adobe/aio-cloudmanager-create-execution-action/compare/v1.0.5...v1.1.0) (2024-06-23)
 
 
