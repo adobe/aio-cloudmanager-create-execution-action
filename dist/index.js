@@ -106760,7 +106760,8 @@ const jwt = __nccwpck_require__(77486)
 const { REQUIRED } = __nccwpck_require__(4438)
 
 const CONTEXT = 'aio-cloudmanager-github-actions'
-const SCOPE = 'ent_cloudmgr_sdk'
+const JWT_SCOPE = 'ent_cloudmgr_sdk'
+const OAUTH_SCOPES = ['openid', 'AdobeID', 'read_organizations', 'additional_info.projectedProductContext', 'read_pc.dma_aem_ams']
 
 async function initSdk (imsOrgId) {
   let apiKey
@@ -106782,7 +106783,7 @@ async function initSdk (imsOrgId) {
   } else {
     core.info('creating access token using provided configuration')
 
-    const key = core.getInput('key', REQUIRED)
+    const oauthEnabled = core.getInput('oauthEnabled', REQUIRED) === 'true'
 
     apiKey = core.getInput('clientId', REQUIRED)
 
@@ -106792,14 +106793,24 @@ async function initSdk (imsOrgId) {
 
     const imsConfig = {
       client_id: apiKey,
-      client_secret: clientSecret,
       technical_account_id: techAccId,
       ims_org_id: imsOrgId,
-      private_key: key.toString(),
-      meta_scopes: [
-        SCOPE,
-      ],
     }
+
+    if (!oauthEnabled) {
+      const key = core.getInput('key', REQUIRED)
+
+      imsConfig.client_secret = clientSecret
+      imsConfig.private_key = key.toString()
+      imsConfig.meta_scopes = [JWT_SCOPE]
+    } else {
+      const techAccEmail = core.getInput('technicalAccountEmail', REQUIRED)
+
+      imsConfig.client_secrets = [clientSecret]
+      imsConfig.technical_account_email = techAccEmail
+      imsConfig.scopes = OAUTH_SCOPES
+    }
+
     await context.set(CONTEXT, imsConfig, true)
     accessToken = await getToken(CONTEXT)
   }

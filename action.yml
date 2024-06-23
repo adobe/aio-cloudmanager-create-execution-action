@@ -11,17 +11,24 @@ inputs:
     description: 'The IMS Organization ID'
     required: true
   clientId:
-    description: 'When providing a JWT configuration, the client ID from the Adobe Developer Console'
+    description: 'When providing a JWT/OAuth configuration, the client ID from the Adobe Developer Console'
     required: false
   clientSecret:
-    description: 'When providing a JWT configuration, the client secret from the Adobe Developer Console'
+    description: 'When providing a JWT/OAuth configuration, the client secret from the Adobe Developer Console'
     required: false
   technicalAccountId:
-    description: 'When providing a JWT configuration, the technical account email from the Adobe Developer Console'
+    description: 'When providing a JWT/OAuth configuration, the technical account email(JWT) / ID(OAuth) from the Adobe Developer Console'
     required: false
   key:
     description: 'When providing a JWT configuration, the private key for the technical account'
     required: false
+  technicalAccountEmail:
+    description: 'When providing an OAuth configuration, the technical account email from the Adobe Developer Console'
+    required: false
+  oauthEnabled:
+    description: 'When providing a JWT/OAuth configuration, the type of configuration enabled'
+    required: false
+    default: 'false'
 outputs:
   executionId:
     description: 'The created execution ID'
