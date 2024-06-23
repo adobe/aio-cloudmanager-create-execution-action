@@ -38,7 +38,7 @@ This action can be configured two different ways -- either in combination with [
 
 ```
 - name: Create Execution
-  uses: adobe/aio-cloudmanager-create-execution-action@v1.0.5
+  uses: adobe/aio-cloudmanager-create-execution-action@v1.1.0
   with:
     CLIENTID: ${{ secrets.CM_CLIENT_ID }}
     CLIENTSECRET: ${{ secrets.CM_CLIENT_SECRET }}
@@ -86,7 +86,7 @@ For example:
 
 ```
 - name: Create Execution
-  uses: adobe/aio-cloudmanager-create-execution-action@v1.0.5
+  uses: adobe/aio-cloudmanager-create-execution-action@v1.1.0
   with:
     PIPELINEID: ${{ secrets.CM_PIPELINE_ID }}
     PROGRAMID: ${{ secrets.CM_PROGRAM_ID }}
